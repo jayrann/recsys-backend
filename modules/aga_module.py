@@ -415,3 +415,17 @@ def run_aga(
         "fitness_history"  : fitness_history,
         "diversity_history": diversity_history
     }
+
+def format_weights(result: dict) -> dict:
+    weights = result['best_weights']
+    return {
+        'user_id':      result['user_id'],
+        'w1_storyline': round(float(weights[0]), 4),
+        'w2_acting':    round(float(weights[1]), 4),
+        'w3_visuals':   round(float(weights[2]), 4),
+        'w4_emotional': round(float(weights[3]), 4),
+        'w5_enjoyment': round(float(weights[4]), 4),
+        'best_mae':     result['best_mae'],
+        'generations':  result['generations'],
+        'converged':    result['converged'],
+    }

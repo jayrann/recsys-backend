@@ -131,7 +131,7 @@ def find_neighbours(
     matrices: dict,
     weights: np.ndarray,
     n_neighbours: int = 30,
-    min_common: int = 5
+    min_common: int = 2
 ) -> list:
     """
     Find the top-N most similar users to the target user.
