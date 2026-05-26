@@ -425,9 +425,20 @@ def get_profile(user_id: int, current: dict = Depends(get_current_user)):
         profile   = None
     else:
         n_ratings, recent, profile = 0, [], None
+    
+    username = None
+    email = None
+    if state.use_db:
+        user = UserDB.get_by_id(user_id)
+        if user:
+            username = user.get("username")
+        email = user.get("email")
+
 
     return {
         "user_id":        user_id,
+        "username":       username,
+        "email":          email,
         "total_ratings":  n_ratings,
         "weight_profile": {
             "w1_storyline": round(float(weights[0]), 4),
@@ -439,7 +450,7 @@ def get_profile(user_id: int, current: dict = Depends(get_current_user)):
         "aga_mae":         profile["best_mae"]    if profile else None,
         "aga_generations": profile["generations"] if profile else None,
         "recent_ratings":  recent
-    }
+}
 
 
 # ─────────────────────────────────────────────────────────────────────────────
