@@ -53,6 +53,7 @@ def get_connection():
         charset="utf8mb4",
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=False,
+        ssl={"fake_flag_to_enable_ssl": True}
     )
     try:
         yield conn
