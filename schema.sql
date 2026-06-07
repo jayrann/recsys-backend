@@ -4,12 +4,7 @@
 -- Run: mysql -u root -p < schema.sql
 -- ═══════════════════════════════════════════════════════════════════════════
 
-CREATE DATABASE IF NOT EXISTS mcrs_db
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE mcrs_db;
-
+USE defaultdb;
 -- ─────────────────────────────────────────────────────────────────────────────
 -- TABLE 1: Users
 -- Stores all registered user accounts and their roles.
